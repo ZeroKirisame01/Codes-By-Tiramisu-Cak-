@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code List</title>
+    <style>
+        /* Styling for loading screen */
+        #loadingScreen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #282828;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-size: 6rem; /* Increased size for better visibility */
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Hide loading screen once loaded */
+        body.loaded #loadingScreen {
+            display: none;
+        }
+
+        /* Internal CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            color: #444;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1e1e1e;
+            color: #ddd;
+        }
+
+        .dark-mode h1 {
+            color: #fff;
+        }
+
+        .dark-mode li {
+            background-color: #333;
+            color: #ddd;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode input[type="text"] {
+            background-color: #444;
+            color: #ddd;
+            border: 1px solid #555;
+        }
+
+        /* Toggle button styling */
+        #toggleButton {
+            padding: 10px 20px;
+            margin: 15px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: #ddd;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark mode button styling */
+        .dark-mode #toggleButton {
+            background-color: #ddd;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loadingScreen">N</div>
+
+    <h1>Code List - Made By: Nagalulu</h1>
+    <h2>Provider:@Tiramisu Cakə</h2>
+    <button id="toggleButton" onclick="toggleDarkMode()">Switch to Dark Mode</button>
+    <input type="text" id="searchInput" placeholder="Search by name or code" onkeyup="filterList()">
+    <ul id="codeList">
+        <li data-name="Mina Kitano" data-code="JUFE-507">Mina Kitano - JUFE-507</li>
+        <li data-name="Eimi Fukada" data-code="FSDSS-778">Eimi Fukada - FSDSS-778</li>
+        <li data-name="ROYD-181" data-code="ROYD-181">ROYD-181</li>
+        <li data-name="Mei Itsukaichi" data-code="ROYD-174">Mei Itsukaichi - ROYD-174</li>
+        <li data-name="Manami Kodo" data-code="GVG-814">Manami Kodo - GVG-814</li>
+        <li data-name="Nozomi Hatzuki" data-code="GVG-017">Nozomi Hatzuki - GVG-017</li>
+        <li data-name="Risa Mochizuki" data-code="GVG-861">Risa Mochizuki - GVG-861</li>
+        <li data-name="Aoi Kururugu" data-code="GVG-910">Aoi Kururugu - GVG-910</li>
+        <li data-name="Mai Kawakita" data-code="GVG-993">Mai Kawakita - GVG-993</li>
+        <li data-name="Risa Morisawa" data-code="GVG-926">Risa Morisawa - GVG-926</li>
+        <li data-name="Ian Hanasaki" data-code="GVG-783">Ian Hanasaki - GVG-783</li>
+        <li data-name="Ai Sayama" data-code="MEYD-860">Ai Sayama - MEYD-860</li>
+        <li data-name="Yotsuba Kominato" data-code="STARS-910">Yotsuba Kominato - STARS-910</li>
+        <li data-name="Ichika Hoshimiya" data-code="SSIS-622">Ichika Hoshimiya - SSIS-622</li>
+        <li data-name="Mary Tachibana" data-code="DASS-250">Mary Tachibana - DASS-250</li>
+        <li data-name="Ichika Hoshimiya" data-code="SSIS-893">Ichika Hoshimiya - SSIS-893</li>
+        <li data-name="Ichika Hoshimiya" data-code="SONE-103">Ichika Hoshimiya - SONE-103</li>
+        <li data-name="Suzume Mino" data-code="DLDSS-277">Suzume Mino - DLDSS-277</li>
+        <li data-name="Mutou Ayaka" data-code="JUQ-610">Mutou Ayaka - JUQ-610</li>
+        <li data-name="Hoshino Natsuki" data-code="MUDR-244">Hoshino Natsuki - MUDR-244</li>
+        <li data-name="IPZZ-225" data-code="IPZZ-225">IPZZ-225</li>
+        <li data-name="Kana Momonogi" data-code="SAME-068">Kana Momonogi - SAME-068</li>
+        <li data-name="Misaki Nanami" data-code="SAME-068">Misaki Nanami - SAME-068</li>
+        <li data-name="Rena Miyashita" data-code="MIDV-671">Rena Miyashita - MIDV-671</li>
+        <li data-name="Mary Tachibana" data-code="NKKD-322">Mary Tachibana - NKKD-322</li>
+        <li data-name="Marina Shiraishi" data-code="JUL-905">Marina Shiraishi - JUL-905</li>
+        <li data-name="Hinata Marin" data-code="SSIS-453">Hinata Marin - SSIS-453</li>
+        <li data-name="Angel Moe" data-code="SSNI-482">Angel Moe - SSNI-482</li>
+        <li data-name="Rara Anzai" data-code="SSNI-799">Rara Anzai - SSNI-799</li>
+        <li data-name="Rio Asahi" data-code="IPZZ-252">Rio Asahi - IPZZ-252</li>
+        <li data-name="Angel Moe" data-code="FSDSS-762">Angel Moe - FSDSS-762</li>
+        <li data-name="Mei Washio" data-code="SONE-117">Mei Washio - SONE-117</li>
+        <li data-name="Hana Haruna" data-code="SPRD-1433">Hana Haruna - SPRD-1433</li>
+        <li data-name="Rin Hachimitsu" data-code="FSDSS-670">Rin Hachimitsu - FSDSS-670</li>
+        <li data-name="Miu Arioka" data-code="DVAJ-609">Miu Arioka - DVAJ-609</li>
+        <li data-name="Kasumi Tsukino" data-code="DVAJ-659">Kasumi Tsukino - DVAJ-659</li>
+        <li data-name="Hikari Nishino" data-code="DVAJ-623">Hikari Nishino - DVAJ-623</li>
+        <li data-name="Tsubaki Kato" data-code="DVAJ-575">Tsubaki Kato - DVAJ-575</li>
+        <li data-name="Mai Kanazawa" data-code="DVAJ-407">Mai Kanazawa - DVAJ-407</li>
+        <li data-name="Hinata Yuki" data-code="DVAJ-678">Hinata Yuki - DVAJ-678</li>
+        <li data-name="Rika Kawai" data-code="DVAJ-553">Rika Kawai - DVAJ-553</li>
+        <li data-name="Akiho Yoshizawa" data-code="DVAJ-782">Akiho Yoshizawa - DVAJ-782</li>
+        <li data-name="Yuuki Anno" data-code="DVAJ-470">Yuuki Anno - DVAJ-470</li>
+        <li data-name="Sakura Momo" data-code="DVAJ-690">Sakura Momo - DVAJ-690</li>
+        <li data-name="Miyuki Aoi" data-code="DVAJ-482">Miyuki Aoi - DVAJ-482</li>
+        <li data-name="Aoi Tsukino" data-code="DVAJ-741">Aoi Tsukino - DVAJ-741</li>
+        <li data-name="Rika Kawai" data-code="DVAJ-385">Rika Kawai - DVAJ-385</li>
+        <li data-name="Hikari Nishino" data-code="DVAJ-430">Hikari Nishino - DVAJ-430</li>
+        <li data-name="Sana Matsui" data-code="DVAJ-632">Sana Matsui - DVAJ-632</li>
+        <li data-name="Marika Matsumoto" data-code="DVAJ-311">Marika Matsumoto - DVAJ-311</li>
+        <li data-name="Karin Akutsu" data-code="DVAJ-750">Karin Akutsu - DVAJ-750</li>
+        <li data-name="Airi Aoshima" data-code="DVAJ-655">Airi Aoshima - DVAJ-655</li>
+        <li data-name="Akane Yoshitake" data-code="DVAJ-596">Akane Yoshitake - DVAJ-596</li>
+        <li data-name="Kyouko Kawaii" data-code="DVAJ-437">Kyouko Kawaii - DVAJ-437</li>
+    </ul>
+
+    <script>
+        // Simulate loading time
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 5000); // 5-second loading screen simulation
+        });
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Function to filter the list based on input
+        function filterList() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const codeList = document.getElementById('codeList');
+            const codes = codeList.getElementsByTagName('li');
+
+            for (let i = 0; i < codes.length; i++) {
+                const codeName = codes[i].getAttribute('data-name').toLowerCase();
+                const codeValue = codes[i].getAttribute('data-code').toLowerCase();
+                if (codeName.includes(searchInput) || codeValue.includes(searchInput)) {
+                    codes[i].style.display = '';
+                } else {
+                    codes[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
